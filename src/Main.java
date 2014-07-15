@@ -1,47 +1,42 @@
-import Tree.Tree;
-
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class Main {
 
+	private static String[] arrayValeur;
 	/**
 	 * @param args
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		
+
 		System.out.println("hello world");
-		int value;
-		Tree theTree = new Tree();
-		theTree.insert(42);
-		theTree.insert(25);
-		theTree.insert(65);
-		theTree.insert(12);
-		theTree.insert(37);
-		theTree.insert(13);
-		theTree.insert(30);
-		theTree.insert(43);
-		theTree.insert(87);
-		theTree.insert(99);
-		theTree.insert(9);
+		ReadFile();
+		System.out.println(arrayValeur[5]);
+	}
 
-		System.out.println("Displaying the tree");
-		theTree.displayTree();
+	private static void ReadFile() throws IOException {
+		BufferedReader br = new BufferedReader(new FileReader("text.txt"));
 
-		System.out.println("Inorder traversal");
-		theTree.inOrder(theTree.returnRoot());
-		System.out.println(" ");
+		try {
+			StringBuilder sb = new StringBuilder();
+			String line = br.readLine();
 
-		System.out.println("Preorder traversal");
-		theTree.preOrder(theTree.returnRoot());
-		System.out.println(" ");
-
-		System.out.println("Postorder traversal");
-		theTree.postOrder(theTree.returnRoot());
-		System.out.println(" ");
-
-		System.out.println("By Level");
-		theTree.byLevel(theTree.returnRoot());
-		System.out.println(" ");
+			while (line != null) {
+				sb.append(line);
+				sb.append(System.lineSeparator());
+				line = br.readLine();
+			}
+			String everything = sb.toString();
+			
+			arrayValeur = everything.split(",");
+			
+		} finally {
+			br.close();
+		}
 	}
 
 }
