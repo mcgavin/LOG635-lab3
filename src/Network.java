@@ -12,7 +12,6 @@ public class Network {
 		layers.put(1, layer);
 		int layer_count = rand.nextInt(8)+3; //de 3 à 10 couches
 		for(int i = 2; i<=layer_count; i++){
-			input_count = rand.nextInt(11)+10; //de 10 à 20 liens entres neurones
 			layer = new Layer(neural_count, false);
 			neural_count = layer.getNeuralCount();
 			layers.put(i, layer);

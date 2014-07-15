@@ -36,8 +36,8 @@ public class Neurone {
 			float in = (float)input.get(random_ids[i]);
 			sum = in * weights[i];
 		}
-		
-		//fonction d'activation to add
-		return 0;
+		//fonction d'activation: tangente hyperbolique
+		float y = (float) ((2.3432 / (1 + Math.exp(-0.667*sum))) - 1.1716);
+		return y;
 	}
 }
