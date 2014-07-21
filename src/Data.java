@@ -68,4 +68,24 @@ public class Data {
 	public List<Integer> getListRental() {
 		return listRental;
 	}
+	
+	public int getMaxRental(){
+		int max = 0;
+		for (int nombre : listRental) {
+			if(max < nombre){
+				max = nombre;
+			}
+		}
+		return max;
+	}
+	
+	public int getMinRental(){
+		int min = Integer.MAX_VALUE;
+		for (int nombre : listRental) {
+			if(min > nombre){
+				min = nombre;
+			}
+		}
+		return min;
+	}
 }

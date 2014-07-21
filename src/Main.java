@@ -35,12 +35,31 @@ public class Main {
 		System.out.println("test");
 		System.out.println(n.getResult(input));
 		*/
+		Network keeper = null;
+		float mean_error = 10000, kept_mean_error = 10000;
+		int count = 0;
 		
-		Network n = new Network(nbAttributs);
-		System.out.println("test");
-		for (List<Float> list : listOfInputs) {
-			System.out.println(n.getResult(list));
+		while (mean_error > 1000){
+			count++;
+			Network n = new Network(nbAttributs);
+			int error_total = 0;
+			int error_count = 0;
+			for (List<Float> list : listOfInputs) {
+				error_total += Math.abs(n.getResult(list)*10000 - listRental.get(error_count));
+				//System.out.println(n.getResult(list)*10000);
+				error_count++;
+			}
+			mean_error = error_total / error_count;
+			if(kept_mean_error > mean_error){
+				count = 0;
+				keeper = n;
+				kept_mean_error=mean_error;
+			}
+			if(count > 100){
+				break;
+			}
 		}
+		System.out.println(kept_mean_error);
 		System.out.println("The end.");
 	}
 }
