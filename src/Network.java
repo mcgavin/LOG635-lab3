@@ -10,7 +10,7 @@ public class Network {
 		Layer layer = new Layer(input_count, true);
 		int neural_count = layer.getNeuralCount();
 		layers.put(1, layer);
-		int layer_count = rand.nextInt(8)+3; //de 3 à 10 couches
+		int layer_count = rand.nextInt(8)+3; //de 3 Ã  10 couches
 		for(int i = 2; i<=layer_count; i++){
 			layer = new Layer(neural_count, false);
 			neural_count = layer.getNeuralCount();
