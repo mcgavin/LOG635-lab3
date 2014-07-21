@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -7,7 +8,8 @@ import java.io.IOException;
 
 public class Main {
 
-	private static String[] arrayValeur;
+	private static List<Integer> listRental;
+	private static List<List<Float>> listOfInputs;
 	/**
 	 * @param args
 	 * @throws IOException 
@@ -15,12 +17,13 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 
-		System.out.println("hello world");
-		ReadFile();
-		System.out.println(arrayValeur[5]);
+		System.out.println("Starting process");
+		Data data = new Data();
+		listRental = data.getListRental();
+		listOfInputs = data.getListOfInputs();
+		int nbAttributs = listOfInputs.get(0).size();
 		
-		
-		List input = new ArrayList();
+	/*	List input = new ArrayList();
 		input.add((float)0.5);
 		input.add((float)0.1);
 		input.add((float)0.2);
@@ -31,26 +34,13 @@ public class Main {
 		Network n = new Network(input.size());
 		System.out.println("test");
 		System.out.println(n.getResult(input));
-	}
-
-	private static void ReadFile() throws IOException {
-		BufferedReader br = new BufferedReader(new FileReader("text.txt"));
-
-		try {
-			StringBuilder sb = new StringBuilder();
-			String line = br.readLine();
-
-			while (line != null) {
-				sb.append(line);
-				sb.append(System.lineSeparator());
-				line = br.readLine();
-			}
-			String everything = sb.toString();
-			
-			arrayValeur = everything.split(",");
-			
-		} finally {
-			br.close();
+		*/
+		
+		Network n = new Network(nbAttributs);
+		System.out.println("test");
+		for (List<Float> list : listOfInputs) {
+			System.out.println(n.getResult(list));
 		}
+		System.out.println("The end.");
 	}
 }
