@@ -6,7 +6,7 @@ public class Layer {
 	List<Neurone> neurones = new ArrayList<Neurone>();
 	public Layer(int input_count, boolean isFirstLayer){
 		Random rand = new Random();
-		int neural_count = rand.nextInt(11)+10; //de 10 à 20 neurones
+		int neural_count = rand.nextInt(11)+20; //de 20 Ã  30 neurones
 		for(int i = 0; i<neural_count; i++){
 			neurones.add(new Neurone(input_count, isFirstLayer));
 		}
