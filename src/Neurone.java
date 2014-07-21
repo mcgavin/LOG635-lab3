@@ -11,12 +11,12 @@ public class Neurone {
 		if(isFirstLayer){
 			link_count = input_count; //prendre tout les input d'origine
 		}else{
-			link_count = rand.nextInt(11) + 10; //10 à 20 liens
+			link_count = rand.nextInt(11) + 10; //10 Ã  20 liens
 		}
 		weights = new int[link_count];
 		random_ids = new int[link_count];
 		for(int i = 0; i<link_count; i++){
-			int weight = rand.nextInt(101); //poids de 0 à 100
+			int weight = rand.nextInt(101); //poids de 0 Ã  100
 			weights[i] = weight;
 		}
 		
@@ -26,7 +26,7 @@ public class Neurone {
 			while(selected[random_id]){
 				random_id = rand.nextInt(input_count);
 			}
-			random_ids[i] = random_id; //poids de 0 à 100
+			random_ids[i] = random_id; //poids de 0 Ã  100
 			selected[random_id] = true;
 		}
 	}
@@ -34,7 +34,7 @@ public class Neurone {
 		float sum = 0;
 		for(int i = 0; i<weights.length; i++){
 			float in = (float)input.get(random_ids[i]);
-			sum = in * weights[i];
+			sum = in * weights[i]/weights.length;
 		}
 		//fonction d'activation: tangente hyperbolique
 		float y = (float) ((2.3432 / (1 + Math.exp(-0.667*sum))) - 1.1716);
