@@ -6,7 +6,7 @@ public class Layer {
 	List<Neurone> neurones = new ArrayList<Neurone>();
 	public Layer(int input_count, boolean isFirstLayer){
 		Random rand = new Random();
-		int neural_count = rand.nextInt(11)+20; //de 20 à 30 neurones
+		int neural_count = rand.nextInt(501)+500; //de 500 à 1000 neurones
 		for(int i = 0; i<neural_count; i++){
 			neurones.add(new Neurone(input_count, isFirstLayer));
 		}
@@ -14,7 +14,7 @@ public class Layer {
 	public int getNeuralCount(){
 		return neurones.size();
 	}
-	public List getValues(List input){
+	public List<Float> getValues(List<Float> input){
 		List<Float> results = new ArrayList<Float>();
 		for (Neurone neurone : neurones) {
 		    results.add(neurone.getValue(input));
