@@ -43,9 +43,45 @@ public class Data {
 				listRental.add(Integer.parseInt(splitedLine[13]));
 				//get important inputs and add them to listInput
 				listInput = new ArrayList<Float>();
-				listInput.add(Float.parseFloat(splitedLine[2]));
-				listInput.add(Float.parseFloat(splitedLine[4]));
-				listInput.add(Float.parseFloat(splitedLine[8]));
+				
+				//SAISON
+				switch (Integer.parseInt(splitedLine[2])) {
+				case 1:listInput.add((float) 0.7);break;
+				case 2:listInput.add((float) 1);break;
+				case 3:listInput.add((float) 0.5);break;
+				case 4:listInput.add((float) 0);break;
+				default:
+					break;
+				}
+				
+				//MOIS
+				switch (Integer.parseInt(splitedLine[4])) {
+				case 1:listInput.add((float) 0);break;
+				case 2:listInput.add((float) 0.05);break;
+				case 3:listInput.add((float) 0.2);break;
+				case 4:listInput.add((float) 0.3);break;
+				case 5:listInput.add((float) 0.5);break;
+				case 6:listInput.add((float) 0.8);break;
+				case 7:listInput.add((float) 1);break;
+				case 8:listInput.add((float) 0.9);break;
+				case 9:listInput.add((float) 0.7);break;
+				case 10:listInput.add((float) 0.4);break;
+				case 11:listInput.add((float) 0.15);break;
+				case 12:listInput.add((float) 0.1);break;					
+				default:
+					break;
+				}
+				
+				//weather
+				switch (Integer.parseInt(splitedLine[8])) {
+				case 1:listInput.add((float) 1);break;
+				case 2:listInput.add((float) 0.6);break;
+				case 3:listInput.add((float) 0.3);break;
+				case 4:listInput.add((float) 0);break;
+				default:
+					break;
+				}
+				
 				listInput.add(Float.parseFloat(splitedLine[9]));
 				listInput.add(Float.parseFloat(splitedLine[10]));
 				

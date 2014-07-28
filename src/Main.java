@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 
@@ -45,18 +46,56 @@ public class Main {
 				error_count++;
 			}
 			mean_error = error_total / error_count;
-			System.out.println(mean_error);
+			System.out.println("found "+mean_error);
 			if(kept_mean_error > mean_error){
 				count = 0;
 				keeper = n;
 				kept_mean_error=mean_error;
-				System.out.println(kept_mean_error);
+				System.out.println("keep "+kept_mean_error);
 			}
 			if(count > 10){
 				break;
 			}
 		}
-		System.out.println(kept_mean_error);
+		System.out.println("final "+kept_mean_error);
+		
+
+		List<Float> newList = new ArrayList<Float>();
+		newList.add((float) 0.7);
+		newList.add((float) 0.1);
+		newList.add((float) 1);
+		newList.add((float) 0.274783);
+		newList.add((float) 0.279961);
+		int result = (int)(keeper.getResult(newList)*10000);
+		System.out.println("Prediction 1:" + result);
+
+		newList = new ArrayList<Float>();
+		newList.add((float) 1);
+		newList.add((float) 0.3);
+		newList.add((float) 1);
+		newList.add((float) 0.4257);
+		newList.add((float) 0.452637);
+		result = (int)(keeper.getResult(newList)*10000);
+		System.out.println("Prediction 2:" + result);
+
+		newList = new ArrayList<Float>();
+		newList.add((float) 0.5);
+		newList.add((float) 1);
+		newList.add((float) 1);
+		newList.add((float) 0.430833);
+		newList.add((float) 0.484987);
+		result = (int)(keeper.getResult(newList)*10000);
+		System.out.println("Prediction 3:" + result);
+
+		newList = new ArrayList<Float>();
+		newList.add((float) 0.5);
+		newList.add((float) 0.9);
+		newList.add((float) 1);
+		newList.add((float) 0.521667);
+		newList.add((float) 0.508204);
+		result = (int)(keeper.getResult(newList)*10000);
+		System.out.println("Prediction 4:" + result);
+		
 		System.out.println("The end.");
 	}
 }
